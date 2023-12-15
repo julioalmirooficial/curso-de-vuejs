@@ -1,7 +1,6 @@
 <script setup>
-import ContadorsDeNumero from '@/components/ContadorDeNumero.vue'
-</script>
-
+import MainHeader from '@/components/header/MainHeader.vue'
+</script> 
 <template>
-  <ContadorsDeNumero/>
+  <MainHeader/>
 </template>
