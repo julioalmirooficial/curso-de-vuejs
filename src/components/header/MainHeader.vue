@@ -16,6 +16,12 @@ const mostrarMenu = ref(true);
         <li>Contact Us</li>
       </ul>
     </nav>
-    <button @click="mostrarMenu = !mostrarMenu">Mostrar menu</button>
+    <button class="btn" @click="mostrarMenu = !mostrarMenu">Mostrar menu</button>
   </header>
 </template>
+<style scoped>
+.btn {
+    background: #000;
+    color: #ffffff;
+}
+</style>
