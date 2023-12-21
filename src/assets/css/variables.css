@@ -1,0 +1,16 @@
+:root{
+    --primary:#185ADB;
+    --dark:#1C2B2D;
+    --secondary:#393E46;
+    --white:#FFFFFF;
+
+    --text-primary:var(--primary);
+    --text-dark:var(--dark);
+    --text-secondary:var(--secondary);
+    --text-white:var(--white);
+
+    --f-small:.8rem;
+    --f-medium:1rem;
+    --f-large:1.5rem;
+    --f-xlarge:2rem;
+}

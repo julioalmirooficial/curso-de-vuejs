@@ -1,27 +1,24 @@
 <script setup>
 import { ref } from 'vue';
 
-const mostrarMenu = ref(true);
+const mostrarMenu = ref(false);
 
 </script>
 <template>
-  <header>
-    <div>
-      <img src="../../assets/img/logo.svg" alt="Logo de vuejs" />
+  <header class="main-header flex">
+    <div class="menu-small flex">
+      <div class="logo-container flex">
+      <img class="logo" src="../../assets/img/logo.svg" alt="Logo de vuejs" />
+      Vue
     </div>
-    <nav v-if="mostrarMenu === true">
+    <button class="show-menu" @click="mostrarMenu = !mostrarMenu">Menu</button>
+    </div>
+    <nav class="menu" :class="mostrarMenu?'active':''">
       <ul>
-        <li>Home</li>
-        <li>Shop</li>
-        <li>Contact Us</li>
+        <li class="menu-item">Home</li>
+        <li class="menu-item">Shop</li>
+        <li class="menu-item">Contact Us</li>
       </ul>
     </nav>
-    <button class="btn" @click="mostrarMenu = !mostrarMenu">Mostrar menu</button>
   </header>
 </template>
-<style scoped>
-.btn {
-    background: #000;
-    color: #ffffff;
-}
-</style>
