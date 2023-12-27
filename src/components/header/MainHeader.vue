@@ -1,5 +1,6 @@
 <script setup>
-import { ref } from 'vue';
+import {ref } from 'vue';
+import TestCicloDeVida from '@/components/base/TestCicloDeVida.vue'
 
 const mostrarMenu = ref(false);
 
@@ -21,4 +22,7 @@ const mostrarMenu = ref(false);
       </ul>
     </nav>
   </header>
+  <div>
+    <TestCicloDeVida v-if="mostrarMenu"/>
+  </div>
 </template>

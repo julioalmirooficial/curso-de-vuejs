@@ -45,3 +45,24 @@
     padding: 0.2rem 0.6rem;
     border-radius: .25rem;
 }
+@media screen and (width >= 768px) {
+   .show-menu{
+    display: none;
+   }
+   .menu{
+    position: static;
+    height: auto;
+    background-color:transparent;
+   }
+   .menu ul {
+    display: flex;
+    justify-content: end;
+    gap: 1rem;
+   }
+   .menu-item{
+    color: var(--text-primary);
+   }
+   .menu-item:hover {
+    border-bottom: 2px solid var(--primary);
+   }
+}
