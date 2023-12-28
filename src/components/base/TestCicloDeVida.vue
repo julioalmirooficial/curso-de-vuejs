@@ -13,7 +13,5 @@ onUnmounted(()=> {
 
 </script>
 <template>
-    <div>
-        hola
-    </div>
+    <div></div>
 </template>

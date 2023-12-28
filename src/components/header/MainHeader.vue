@@ -3,6 +3,18 @@ import {ref } from 'vue';
 import TestCicloDeVida from '@/components/base/TestCicloDeVida.vue'
 
 const mostrarMenu = ref(false);
+const props = defineProps({
+  showModal:{
+    type:Function,
+    required:false
+  },
+  numero:{
+    type:Number
+  },
+  array:{
+    type:Array
+  }
+})
 
 </script>
 <template>
@@ -23,6 +35,11 @@ const mostrarMenu = ref(false);
     </nav>
   </header>
   <div>
-    <TestCicloDeVida v-if="mostrarMenu"/>
+    <button @click="props.showModal"></button>
+    {{ props.numero }}
+    <ul>
+      <li v-for="item in props.array" :key="item">{{ item }}</li>
+    </ul>
+    <TestCicloDeVida/>
   </div>
 </template>
