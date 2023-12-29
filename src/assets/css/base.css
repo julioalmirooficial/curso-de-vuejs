@@ -21,3 +21,6 @@ button{
     outline: none;
     cursor: pointer;
 }
+p,h2{
+    margin: 0;
+}

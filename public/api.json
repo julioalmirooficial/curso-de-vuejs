@@ -1,9 +1,4 @@
-<script setup>
-import MainHeader from '@/components/header/MainHeader.vue'
-import CardsVue from '@/components/ejercicios/CardsVue.vue'
-import { ref } from 'vue';
-const array = ref([1,2,3,5])
-const api = [
+[
     {
       "title": "Work",
       "timeframes": {
@@ -107,16 +102,3 @@ const api = [
       }
     }
   ]
-</script> 
-<template>
-  <div >
-    <MainHeader :numero="12500" :array="array"/>
-    <CardsVue :api="api"/>
-  </div>
-</template>
-<style>
-body{
-  min-height: 100vh;
-  overflow-y: scroll;
-}
-</style>
