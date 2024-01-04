@@ -1,7 +1,8 @@
 <script setup>
 import MainHeader from '@/components/header/MainHeader.vue'
-import CardsVue from '@/components/ejercicios/CardsVue.vue'
-import { ref } from 'vue';
+//import CardsVue from '@/components/ejercicios/CardsVue.vue'
+import ListCart from '@/components/ejercicios/ListCart.vue'
+/*import { ref } from 'vue';
 const array = ref([1,2,3,5])
 const api = [
     {
@@ -106,12 +107,14 @@ const api = [
         }
       }
     }
-  ]
+  ]*/
+
 </script> 
 <template>
   <div >
     <MainHeader :numero="12500" :array="array"/>
-    <CardsVue :api="api"/>
+   <!--<CardsVue :api="api"/>--> 
+   <ListCart/>
   </div>
 </template>
 <style>
