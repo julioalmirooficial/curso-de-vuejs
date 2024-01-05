@@ -7,28 +7,32 @@ const products = [
         name:'AGUA CIELO',
         price: 2000.00,
         currency:'USD',
-        poster:'https://abarroteselprofe.com/wp-content/uploads/2023/03/IMG_20230426_143049-scaled.jpg'
+        poster:'https://abarroteselprofe.com/wp-content/uploads/2023/03/IMG_20230426_143049-scaled.jpg',
+        quantity:0
     },
     {
         id:2,
         name:'INKA KOLA',
         price: 2500.00,
         currency:'USD',
-        poster:'https://abarroteselprofe.com/wp-content/uploads/2023/03/IMG_20230426_143049-scaled.jpg'
+        poster:'https://abarroteselprofe.com/wp-content/uploads/2023/03/IMG_20230426_143049-scaled.jpg',
+        quantity:0
     },
     {
         id:3,
         name:'COCA KOLA',
         price: 2500.00,
         currency:'USD',
-        poster:'https://abarroteselprofe.com/wp-content/uploads/2023/03/IMG_20230426_143049-scaled.jpg'
+        poster:'https://abarroteselprofe.com/wp-content/uploads/2023/03/IMG_20230426_143049-scaled.jpg',
+        quantity:0
     },    
     {
         id:4,
         name:'CAFE DEL NORTE',
         price: 500.00,
         currency:'USD',
-        poster:'https://abarroteselprofe.com/wp-content/uploads/2023/03/IMG_20230426_143049-scaled.jpg'
+        poster:'https://abarroteselprofe.com/wp-content/uploads/2023/03/IMG_20230426_143049-scaled.jpg',
+        quantity:0
     }
 ];
 const emits = defineEmits(['addToCart'])
