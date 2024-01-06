@@ -1,7 +1,8 @@
 <script setup>
 import MainHeader from '@/components/header/MainHeader.vue'
+import GetAPI from './components/ejercicios/GetAPI.vue';
 //import CardsVue from '@/components/ejercicios/CardsVue.vue'
-import ListCart from '@/components/ejercicios/ListCart.vue'
+// import ListCart from '@/components/ejercicios/ListCart.vue'
 /*import { ref } from 'vue';
 const array = ref([1,2,3,5])
 const api = [
@@ -114,7 +115,8 @@ const api = [
   <div >
     <MainHeader :numero="12500" :array="array"/>
    <!--<CardsVue :api="api"/>--> 
-   <ListCart/>
+   <!-- <ListCart/> -->
+   <GetAPI/>
   </div>
 </template>
 <style>
