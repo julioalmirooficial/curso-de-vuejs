@@ -1,77 +1,86 @@
 <script setup>
 import { onMounted, ref } from 'vue';
 import IconSpinner from '@/components/icons/IconSpinner.vue';
+import IconTrash from '../icons/IconTrash.vue';
+import getData from '@/api/users/getData'
+import insertData from '@/api/users/insertData'
 
-const BASE_URL = 'https://jsonplaceholder.typicode.com/posts';
-const posts = ref([]);
-const myPost = ref({});
+const BASE_URL = 'http://localhost:8000/index.php';
+const users = ref([]);
 const loading = ref(true);
+const dataForm = ref({
+  name: '',
+  email: ''
+});
 
-const getData = async () => {
-  const response = await fetch(BASE_URL);
-  posts.value = await response.json();
-  loading.value = false;
+const retrieveData = async () => {
+  users.value = await getData(); 
+  loading.value = false
+}
+
+
+const deleteData = async (id) => {
+  const response = await fetch(BASE_URL + '?id=' + id, {
+    method: 'DELETE',
+    'Content-Type': 'application/json'
+  });
+  const data = await response.json();
+  if (data.mensaje === 'Registro eliminado con éxito') {
+    await retrieveData()
+  } else {
+    alert('No se elimino el registro');
+  }
 };
 
-const getFirstData = async (id) => {
-  const response = await fetch(`${BASE_URL}/${id}`);
-  myPost.value = await response.json();
-};
+const insert  = async (e)=> {
+  await insertData(e,dataForm.value)
+  await retrieveData()
+}
+
 onMounted(async () => {
-  await getData();
+  await retrieveData()
 });
 </script>
 <template>
   <section>
-    <section>
-      <h1>Mi post seleccionado</h1>
-      <div>
-        <h3>{{ myPost.title }}</h3>
-        <p>
-          {{ myPost.body }}
-        </p>
-      </div>
-    </section>
-
+    <div class="card">
+      <form>
+        <input type="text" v-model="dataForm.name" placeholder="Ingresa un nombre" />
+        <input type="email" v-model="dataForm.email" placeholder="Ingresa un correo" />
+        <button @click="insert($event)">Registrar</button>
+      </form>
+    </div>
     <IconSpinner class="spinner" v-if="loading" />
-    <div v-else>
-      <div v-for="(post, i) in posts" :key="i">
-        <h2>{{ post.title }}</h2>
+    <div v-else class="card">
+      <div class="card-item" v-for="(user, i) in users" :key="i">
+        <h2>{{ user.name }}</h2>
         <p>
-          {{ post.body }}
+          {{ user.email }}
         </p>
-        <button @click="getFirstData(post.id)">Mostrar registro</button>
+        <div>
+          <button @click="deleteData(user.id)">
+            <IconTrash class="trash" />
+          </button>
+        </div>
       </div>
     </div>
   </section>
 </template>
 <style>
-section {
-  padding: 1rem 3rem;
-  display: flex;
-  justify-content: center;
-  flex-direction: column;
+.card {
+  padding: 1rem 4rem;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+  gap: 1rem;
 }
-.spinner {
-  animation: spinner 1s infinite;
+.card-item {
+  background-color: rgba(0, 0, 0, 0.07);
+  border: 1px solid rgba(0, 0, 0, 0.2);
+  padding: 1rem;
+  border-radius: 0.25rem;
+  box-shadow: 0 10px 10px rgba(0, 0, 0, 0.1);
 }
-h3 {
-  color: var(--primary);
-}
-button {
-  background-color: var(--dark);
-  color: var(--white);
-}
-button + div {
-  background: #0000005a;
-  padding: 0.5rem;
-}
-@keyframes spinner {
-  0% {
-    rotate: 0deg;
-  }
-  100% {
-    rotate: 360deg;
-  }
+.trash {
+  color: red;
 }
 </style>
