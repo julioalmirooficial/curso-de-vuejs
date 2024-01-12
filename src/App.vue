@@ -113,7 +113,7 @@ const api = [
 </script> 
 <template>
   <div >
-    <MainHeader :numero="12500" :array="array"/>
+    <MainHeader :numero="12500" />
    <!--<CardsVue :api="api"/>--> 
    <!-- <ListCart/> -->
    <GetAPI/>
